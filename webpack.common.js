@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { url } = require("inspector");
 
 module.exports = {
   entry: "./src/index.js",
@@ -25,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: "asset/resource",
+        type: "asset/resource",
       },
     ],
   },
