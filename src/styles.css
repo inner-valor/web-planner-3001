@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(253, 253, 253);
+    --secondary-color: rgb(0, 0, 0);
+    --tertiary-color: rgb(0, 0, 0);
+    --font-size: 24px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+header,
+.center-container,
+footer {
+    border: 1px solid red;
+}
+
+/* global styles */
+
+main {
+    margin: 15px 0;
+}
+
+.center-container {
+    height: auto;
+    width: 100%;
+}
+
+.create-list-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* header  */
+.header-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.logo {
+    margin: 0 15px;
+    padding: 8px;
+    border: 1px solid blue;
+}
+
+button .material-symbols-outlined {
+    font-size: calc(var(--font-size) + 1rem);
+}
+
+.header.create-list-btn {
+    width: 90px;
+}
+
+.header.create-list-btn button {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* homepage */
+
+.empty-page.create-list-btn button {
+    padding: 15px;
+    font-size: 21px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.empty-page.create-list-btn button:hover {
+    background-color: lightgray;
+}
+
+.home-page {
+    height: 100%;
+    min-height: 300px;
+    
+}
+
+.home-page.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-box {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.todo-box:nth-child(2n) {
+    background-color: lightgray;
+}
+
+.todo-box:hover {
+    background-color: rgb(153, 153, 153);
+}
+
+.todo-box h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 80%;
+    border: 1px solid black;
+    padding: 15px 5px;
+}
+
+.todo-box i {
+    margin-left: auto;
+    padding: 15px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.filled {
+    font-variation-settings: 
+        'FILL' 1
+    ;
+}
+
+/* listpage styles */
+
+.list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-options {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    
+}
+
+.list-options :nth-child(2) {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.list-options i {
+    font-size: calc(var(--font-size) + 2rem);
+}
+
+.list-options div {
+    cursor: pointer;
+}
+
+.list-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 15px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.list {
+    position: relative;
+    display: flex;
+    margin-bottom: 25px;
+    padding-left: 29px;
+    font-size: var(--font-size);
+    border-bottom: 1px solid black;
+    list-style: none;
+    overflow-wrap: anywhere;
+}
+
+.list::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-image: url(./imgs/check_box_empty.png);
+    background-size: cover;
+    background-position: center;
+    left: 0;
+}
+
+.list.checked {
+    text-decoration: line-through;
+    
+}
+
+.list.checked::before {
+    background-image: url(./imgs/check_box.png);
+} 
+
+.remove-btn {
+    margin: auto 0 auto auto;
+    cursor: pointer;
+}
+
+.date-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* create list menu */
+
+.create-list-page > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.create-name label, .create-list > label {
+    font-size: calc(var(--font-size) + 0.5rem);
+}
+
+.create-name input[type=text], .create-list input[type=text] {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50px;
+}
+
+.create-list input[type=text] {
+    padding-right: 60px;
+}
+
+.list-input-container {
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.list-input-container button {
+    position: absolute;
+    display: block;
+    width: 44px;
+    height: 100%;
+    right: 0;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    cursor: pointer;
+}
+
+.list-input-container button:hover {
+    background-color: gainsboro;
+}
+
+.created-list-container {
+    width: 85%;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.created-list-container .list {
+    display: flex;
+    align-items: center;
+}
+
+.created-list-container button {
+    margin-left: auto;
+}
+
+.submit-cancel-container {
+    display: block !important;
+    text-align: center;
+}
+
+.submit-cancel-container button {
+    cursor: pointer;
+}
+
+
