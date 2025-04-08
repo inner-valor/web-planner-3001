@@ -1,9 +1,10 @@
-import { listPageTemplate } from "./pageManager";
+import { listPageController, createEditPageController } from "./pageController";
+
 
 function homePageFunction(data) {
     window.addEventListener('click', (e) => {
         if (e.target.dataset.btn === 'createList') {
-            listPageTemplate()
+            createEditPageController(data, data);
         }
     });
 
@@ -14,9 +15,30 @@ function homePageFunction(data) {
         todoContainer.appendChild(addDataToList(item));
     });
 
-    console.log(todoData)
+    todoContainer.addEventListener('click', (e) => {
+        let selectedDiv;
+        let selectedData = [];
 
+        // if the mouse clicked the div or the h2, the main list is picked
+        if (e.target.tagName === 'DIV') {
+            selectedDiv = e.target;
+            selectedData = todoData.filter((todo) => todo.id === selectedDiv.id);
+            listPageController(selectedData, data);
+        } else {
+            selectedDiv = e.target.parentNode;
+            selectedData = todoData.filter((todo) => todo.id === selectedDiv.id);
+            
+            if (e.target.tagName === 'I') { // toggles the favorite button
+                selectedData[0].favorite = !selectedData[0].favorite;
+                selectedDiv.querySelector('i').classList.toggle('filled'); 
+            } else {
+                listPageController(selectedData, data);
+            }
+        }         
+    })
 }
+
+
 
 function addDataToList(data) {
     const div = document.createElement('div');
