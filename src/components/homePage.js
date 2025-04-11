@@ -2,9 +2,12 @@ import { listPageController, createEditPageController } from "./pageController";
 
 
 function homePageFunction(data) {
+    
     window.addEventListener('click', (e) => {
         if (e.target.dataset.btn === 'createList') {
-            createEditPageController(data, data);
+            createEditPageController([], data);
+            
+            
         }
     });
 
@@ -20,11 +23,11 @@ function homePageFunction(data) {
         let selectedData = [];
 
         // if the mouse clicked the div or the h2, the main list is picked
-        if (e.target.tagName === 'DIV') {
+        if (e.target.tagName === 'DIV' && !e.target.classList.contains('home-page')) {
             selectedDiv = e.target;
             selectedData = todoData.filter((todo) => todo.id === selectedDiv.id);
             listPageController(selectedData, data);
-        } else {
+        }  else if (e.target.tagName === 'H2' || e.target.tagName === 'I') {
             selectedDiv = e.target.parentNode;
             selectedData = todoData.filter((todo) => todo.id === selectedDiv.id);
             
@@ -34,6 +37,8 @@ function homePageFunction(data) {
             } else {
                 listPageController(selectedData, data);
             }
+        } else {
+            return;
         }         
     })
 }

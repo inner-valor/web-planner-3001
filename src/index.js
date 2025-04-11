@@ -1,10 +1,6 @@
 import './styles.css';
-import { homePageTemplate, editPageTemplate, listPageTemplate } from './components/pageManager';
-import homePageFunction from './components/homePage';
 import { homePageController } from './components/pageController';
-
 import { v4 as uuidv4 } from 'uuid';
-
 
 
 function startApp() {

@@ -1,7 +1,7 @@
-import { homePageController } from "./pageController";
+import { homePageController, createEditPageController } from "./pageController";
 
 function listPageFunction(selectedData, storedData) {
-    listOptions(storedData);
+    listOptions(selectedData, storedData);
     makeList(selectedData[0])
     clickHandler(selectedData[0]);
     
@@ -43,7 +43,7 @@ function makeList(todo) {
 
 };
 
-function listOptions(storedData) {
+function listOptions(selectedData, storedData) {
     const optionsContainer = document.querySelector('.list-options');
     const options = optionsContainer.querySelectorAll('div');
 
@@ -54,7 +54,7 @@ function listOptions(storedData) {
             } else if (e.currentTarget.className === 'trash') {
                 console.log('trash');
             } else {
-                console.log('edit');
+                createEditPageController(selectedData, storedData);
             }
         })
     })

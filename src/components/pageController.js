@@ -1,7 +1,7 @@
 import { homePageTemplate, editPageTemplate, listPageTemplate } from "./pageManager";
 import listPageFunction from "./listPage";
 import homePageFunction from "./homePage";
-import createEditPageFunction from "./createEditpage";
+import createEditPageFunction from "./createEditPage";
 
 export function homePageController(data) {
     homePageTemplate(data);
