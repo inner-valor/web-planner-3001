@@ -9,7 +9,13 @@ function listPageFunction(selectedData, storedData) {
 
 function makeList(todo) {
     const listContainer = document.querySelector('.list-container');
+    const h1 = document.createElement('h1');
     let i = 0;
+
+    h1.textContent = todo.name;
+    h1.classList = 'todo-title';
+
+    listContainer.appendChild(h1);
 
     todo.listData.forEach(list => {
         const div = document.createElement('div');
@@ -33,6 +39,8 @@ function makeList(todo) {
     const dateDiv = document.createElement('div');
     const date = document.createElement('p');
 
+    
+
     dateDiv.className = 'date-container';
     
     date.textContent = `updated at ${todo.date}`;
@@ -52,7 +60,13 @@ function listOptions(selectedData, storedData) {
             if (e.currentTarget.className === 'back') {
                 homePageController(storedData);
             } else if (e.currentTarget.className === 'trash') {
-                console.log('trash');
+                if (confirm('are you sure?') === true) {
+                    storedData.splice(storedData.indexOf(selectedData[0]), 1);
+                    homePageController(storedData);
+                } else {
+                    return;
+                }
+                
             } else {
                 createEditPageController(selectedData, storedData);
             }
