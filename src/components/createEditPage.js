@@ -41,6 +41,7 @@ function createEditPageFunction(selectedData, storedData) {
         tempListCreator(tempListData);
 
         submitBtn.addEventListener('click', () => {
+            selectedData[0].date = new Date().toLocaleString();
             selectedData[0].listData = [...tempListData];
             listPageController(selectedData, storedData);
 
