@@ -3,7 +3,7 @@ import { homePageController, createEditPageController } from "./pageController";
 function listPageFunction(selectedData, storedData) {
     listOptions(selectedData, storedData);
     makeList(selectedData[0])
-    clickHandler(selectedData[0]);
+    clickHandler(selectedData[0], storedData);
     
 }
 
@@ -39,8 +39,6 @@ function makeList(todo) {
     const dateDiv = document.createElement('div');
     const date = document.createElement('p');
 
-    
-
     dateDiv.className = 'date-container';
     
     date.textContent = `updated at ${todo.date}`;
@@ -62,11 +60,11 @@ function listOptions(selectedData, storedData) {
             } else if (e.currentTarget.className === 'trash') {
                 if (confirm('are you sure?') === true) {
                     storedData.splice(storedData.indexOf(selectedData[0]), 1);
+                    localStorage.setItem('storedData', JSON.stringify(storedData));
                     homePageController(storedData);
                 } else {
                     return;
                 }
-                
             } else {
                 createEditPageController(selectedData, storedData);
             }
@@ -75,7 +73,7 @@ function listOptions(selectedData, storedData) {
     
 };
 
-function clickHandler(selectedData) {
+function clickHandler(selectedData, storedData) {
     const listContainer = document.querySelector('.list-container');
 
     listContainer.addEventListener('click', (e) => {
@@ -86,17 +84,11 @@ function clickHandler(selectedData) {
                 selectedData.listData[e.target.id].checked = true;
             } else {
                 selectedData.listData[e.target.id].checked = false;
-            }
+            };
+        };
 
-            
-        }
-    })
-
-    
-}
-
-
-
-
+        localStorage.setItem('storedData', JSON.stringify(storedData));
+    });    
+};
 
 export default listPageFunction;

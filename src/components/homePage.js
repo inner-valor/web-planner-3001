@@ -1,13 +1,10 @@
 import { listPageController, createEditPageController } from "./pageController";
 
 
-function homePageFunction(data) {
-    
+function homePageFunction(data) {    
     window.addEventListener('click', (e) => {
         if (e.target.dataset.btn === 'createList') {
             createEditPageController([], data);
-            
-            
         }
     });
 
@@ -33,7 +30,8 @@ function homePageFunction(data) {
             
             if (e.target.tagName === 'I') { // toggles the favorite button
                 selectedData[0].favorite = !selectedData[0].favorite;
-                selectedDiv.querySelector('i').classList.toggle('filled'); 
+                selectedDiv.querySelector('i').classList.toggle('filled');
+                localStorage.setItem('storedData', JSON.stringify(data)); 
             } else {
                 listPageController(selectedData, data);
             }

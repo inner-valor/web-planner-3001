@@ -26,6 +26,7 @@ function createEditPageFunction(selectedData, storedData) {
                 alert('please enter a name!')
             } else {
                 storedData.push(newData);
+                localStorage.setItem('storedData', JSON.stringify(storedData));
                 homePageController(storedData);
             };
         });
@@ -43,6 +44,7 @@ function createEditPageFunction(selectedData, storedData) {
         submitBtn.addEventListener('click', () => {
             selectedData[0].date = new Date().toLocaleString();
             selectedData[0].listData = [...tempListData];
+            localStorage.setItem('storedData', JSON.stringify(storedData));
             listPageController(selectedData, storedData);
 
         })
