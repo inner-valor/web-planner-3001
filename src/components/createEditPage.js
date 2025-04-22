@@ -23,7 +23,7 @@ function createEditPageFunction(selectedData, storedData) {
             };
 
             if (newData.name.trim() === '') {
-                alert('please enter a name!')
+                alert('Please enter a name!')
             } else {
                 storedData.push(newData);
                 localStorage.setItem('storedData', JSON.stringify(storedData));
@@ -58,7 +58,7 @@ function createEditPageFunction(selectedData, storedData) {
 
     createdListBtn.addEventListener('click', () => {
         if (createdList.value.trim() === '') {
-            alert('please enter a value!');
+            alert('Please enter a value!');
             return;
         } else {
             tempListData.push({ text: createdList.value, checked: false });

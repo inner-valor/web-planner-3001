@@ -65,12 +65,12 @@ export function editPageTemplate() {
         <div class="center-container">
             <div class="create-list-page">
                 <div class="create-name">
-                    <label for="todo-name">name:</label>
+                    <label for="todo-name">Name:</label>
                     <input type="text" name="todo-name" id="todo-name" autocomplete="off" />
                 </div>
 
                 <div class="create-list">
-                    <label for="list-name">list:</label>
+                    <label for="list-name">List:</label>
                     <div class="list-input-container">
                         <input type="text" name="list-name" id="list-name" autocomplete="off" />
                         <button class="material-symbols-outlined" id="add-list" type='button'>
@@ -82,8 +82,8 @@ export function editPageTemplate() {
                     </ul>
                 </div>
                 <div class="submit-cancel-container">
-                    <button type="button" id="submit">submit</button>
-                    <button type="button" id="cancel">cancel</button>
+                    <button type="button" id="submit">Submit</button>
+                    <button type="button" id="cancel">Cancel</button>
                 </div>
             </div>
         </div>

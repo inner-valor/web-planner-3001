@@ -5,9 +5,16 @@
 }
 
 :root {
-    --primary-color: rgb(253, 253, 253);
-    --secondary-color: rgb(0, 0, 0);
-    --tertiary-color: rgb(0, 0, 0);
+    --primary-color: #848484;
+    --secondary-color: #83eeff;
+    --tertiary-color: #000000;
+    --color-palette1: #b8e6ed;
+    --color-palette2: #125e9c;
+    --color-palette3: #dbe0e2;
+    --color-palette4: #aaacac;
+    --border-style1: 5px double #1c91f0;
+    --border-style2: 5px solid #91ccfc;
+    --border-style3: 5px ridge #1c91f0;
     --font-size: 24px;
 }
 
@@ -20,23 +27,35 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    background-color: var(--color-palette2);
+    font-family: Garamond, serif;
 }
 
 header,
 .center-container,
 footer {
-    border: 1px solid red;
+    /* layout border lines */
+    /* border: 1px solid red; */
+    background-color: rgb(241, 241, 241);
 }
+
 
 /* global styles */
 
+header, footer {
+    background-image: linear-gradient(353deg, var(--primary-color), #ffffff3d);
+}
+
 main {
     margin: 15px 0;
+    flex-grow: 1;
 }
 
 .center-container {
     height: auto;
     width: 100%;
+    background-color: var(--color-palette3);
+    border: var(--border-style3);
 }
 
 .create-list-btn {
@@ -46,18 +65,29 @@ main {
     height: 100%;
 }
 
+footer {
+    padding: 20px;
+    border-top: var(--border-style2);
+    text-align: center;
+    font-size: var(--font-size);
+}
+
 /* header  */
 .header-center {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    border-bottom: var(--border-style2);
 }
 
 .logo {
     margin: 0 15px;
     padding: 8px;
-    border: 1px solid blue;
+    border: var(--border-style1);
+    color: var(--color-palette2);
+    background-color: #ffffff00;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button .material-symbols-outlined {
@@ -72,19 +102,23 @@ button .material-symbols-outlined {
     height: 100%;
     width: 100%;
     cursor: pointer;
+    font-size: calc(var(--font-size) + 50px);
 }
 
 /* homepage */
 
-.empty-page.create-list-btn button {
+.home-page.empty button {
     padding: 15px;
     font-size: 21px;
-    border-radius: 15px;
+    border: var(--border-style3);
+    background-color: var(--color-palette1);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.empty-page.create-list-btn button:hover {
-    background-color: lightgray;
+.home-page.empty button:hover {
+    color: rgb(2, 143, 0);
+    background-color: aqua;
 }
 
 .home-page {
@@ -105,23 +139,25 @@ button .material-symbols-outlined {
     height: 100px;
     width: 100%;
     padding: 10px;
+    background-color: var(--color-palette1);
     border: 1px solid black;
     cursor: pointer;
 }
 
 .todo-box:nth-child(2n) {
-    background-color: lightgray;
+    background-color: var(--secondary-color);
 }
 
 .todo-box:hover {
-    background-color: rgb(153, 153, 153);
+    color: var(--tertiary-color);
+    background-color: var(--primary-color);
 }
 
 .todo-box h2 {
     white-space: nowrap;
     overflow: hidden;
     width: 80%;
-    border: 1px solid black;
+    border: var(--border-style);
     padding: 15px 5px;
 }
 
@@ -173,7 +209,12 @@ button .material-symbols-outlined {
     width: 90%;
     margin-top: 15px;
     padding: 20px;
-    border: 1px solid black;
+    background-color: var(--color-palette1);
+    border: var(--border-style3);
+}
+
+.todo-title {
+    text-align: center;
 }
 
 .list {
@@ -182,7 +223,7 @@ button .material-symbols-outlined {
     margin-bottom: 25px;
     padding-left: 29px;
     font-size: var(--font-size);
-    border-bottom: 1px solid black;
+    border-bottom: var(--border-style2);
     list-style: none;
     overflow-wrap: anywhere;
 }
@@ -196,6 +237,11 @@ button .material-symbols-outlined {
     background-size: cover;
     background-position: center;
     left: 0;
+}
+
+.delete-btn {
+    margin-left: auto;
+    cursor: pointer;
 }
 
 .list.checked {
@@ -266,7 +312,7 @@ button .material-symbols-outlined {
 .created-list-container {
     width: 85%;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
 }
 
 .created-list-container .list {
@@ -285,6 +331,39 @@ button .material-symbols-outlined {
 
 .submit-cancel-container button {
     cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-family: monospace;
+    font-size: var(--font-size);
+    border: 1px solid black;
+    margin: 0 15px;
+}
+
+.submit-cancel-container button:hover {
+    opacity: 0.6;
+}
+
+#submit {
+    background-color: #0ff50f;
+}
+
+#cancel {
+    background-color: red;
 }
 
 
+@media screen and (min-width: 750px) {
+    .center-container {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@keyframes color {
+    0% {
+        background-color: rgb(19, 129, 255);
+    }
+    100% {
+        background-color: rgb(40, 109, 189);
+    }
+}
